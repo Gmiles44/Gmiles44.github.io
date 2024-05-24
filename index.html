@@ -1,38 +1,15 @@
-{% extends "layout.html" %}
-{% block title %}Home{% endblock %}
-{% block head %}
-<link href="/static/craft.css" rel="stylesheet">
-{% endblock %}
-{% block body %}
-<div class="container">
-    <img src="/static/scroll.png" class="overhead">
-    <div class="centered">Homepage!</div>
-</div>
-<div class="container" id="navbutton">
-    <button class="btn btn-warning" disabled>
-        <img src="/static/home.png" style="width:30px">Home</button>
-    <a href="{{ url_for('inventory') }}" class="btn btn-secondary">
-        <img src="/static/inventory.png" style="width:30px">Inventory</a>
-    <a href="{{ url_for('craft') }}" class="btn btn-info">
-        <img src="/static/Pickaxe.png" style="width:30px">Craft</a>
-    <a href="{{ url_for('market') }}" class="btn btn-success">
-        <img src="/static/market.png" style="width:30px">Market</a>
-</div>
-<table class="table" style="width: 400px; opacity: 0.9; margin: 10px auto">
-    <thead>
-        <tr>
-            <td>Stats:</td>
-            <td>Gold</td>
-            <td>Level</td>
-        </tr>
-        <tr>
-            <td></td>
-            <td>{{ stats[0]['gold'] }}</td>
-            <td>{{ stats[0]['level'] }}</td>
-        </tr>
-    </thead>
-</table>
-<div style="position: fixed; bottom: 0; right: 0">
-    <btn class="btn btn-danger" id="end_day">End the Day</btn>
-</div>
-{% endblock %}
+<!DOCTYPE html>
+
+<html lang="en">
+    <head>
+        {% block head %}{% endblock %}
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Main Page</title>
+    </head>
+    <body>
+        <h1>This is my homepage!</h1>
+        <a href="/templates/index" class="btn btn-warning">
+            <img src="/static/home.png" style="width:30px">Project</a>
+    </body>
+</html>
