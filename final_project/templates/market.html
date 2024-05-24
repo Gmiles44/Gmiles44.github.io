@@ -1,0 +1,73 @@
+{% extends "layout.html" %}
+{% block title %}Market{% endblock %}
+{% block head %}
+<link href="/static/craft.css" rel="stylesheet">
+{% endblock %}
+{% block body %}
+<script src="../static/functions.js"></script>
+<div class="container">
+    <img src="/static/scroll.png" class="overhead">
+    <div class="centered">Market!</div>
+</div>
+<div class="container" id="navbutton">
+    <a href="{{ url_for('index') }}" class="btn btn-warning">
+        <img src="/static/home.png" style="width:30px">Home</a>
+    <a href="{{ url_for('inventory') }}" class="btn btn-secondary">
+        <img src="/static/inventory.png" style="width:30px">Inventory</a>
+    <a href="{{ url_for('craft') }}" class="btn btn-info">
+        <img src="/static/Pickaxe.png" style="width:30px">Craft</a>
+    <button class="btn btn-success" disabled>
+        <img src="/static/market.png" style="width:30px">Market</button>
+</div>
+<div>
+{% for merchant in merchants %}
+<table class="table" style="width: 400px; opacity: 0.9; margin: 10px auto; font-size: 32px">
+    <thead><tr class="table-warning"><td>{{ merchant.name }}</td></tr></thead>
+    <table class="table" id="materials" style="width: 400px; opacity: 0.9; margin: 10px auto">
+        <thead>
+            <tr>
+                <td>Material</td>
+                <td>Price</td>
+                <td>Available</td>
+                <td>Purchase</td>
+                <td>Total</td>
+            </tr>
+            <tr>
+                <td>{{ merchant.m1_name }}<form action="/market" method="post"></td>
+                <td class="price" value="{{ merchant.m1_base_price }}">{{ merchant.m1_base_price}}g</td>
+                <td>{{ merchant.inv_1_amt }}</td>
+                <td><input type="number" class="qty" id="m_number" placeholder="Amt" style="width: 60px" min="1" onChange="sum_amt()"></td>
+                <td><input type="text" name="total" id="total" class="total" placeholder="Total"></td>
+            </tr>
+            {% if merchant.m2_name %}<form action="/market" method="post"><tr>
+                <td>{{ merchant.m2_name }}</td>
+                <td class="price" value="{{ merchant.m2_base_price }}">{{ merchant.m2_base_price}}g</td>
+                <td>{{ merchant.inv_2_amt }}</td>
+                <td><input type="number" class="qty" placeholder="Amt" style="width: 60px" min="1"></td>
+            </tr>{% endif %}
+            {% if merchant.m3_name %}<form action="/market" method="post"><tr>
+                <td>{{ merchant.m3_name }}</td>
+                <td class="price"  value="{{ merchant.m3_base_price }}">{{ merchant.m3_base_price}}g</td>
+                <td>{{ merchant.inv_3_amt }}</td>
+                <td><input type="number" class="qty" placeholder="Amt" style="width: 60px" min="1"></td>
+            </tr>{% endif %}
+            {% if merchant.m4_name %}<form action="/market" method="post"><tr>
+                <td>{{ merchant.m4_name }}</td>
+                <td class="price" value="{{ merchant.m4_base_price }}">{{ merchant.m4_base_price}}g</td>
+                <td>{{ merchant.inv_4_amt }}</td>
+                <td><input type="number" class="qty" placeholder="Amt" style="width: 60px" min="1"></td>
+            </tr>{% endif %}
+            {% if merchant.m5_name %}<form action="/market" method="post"><tr>
+                <td>{{ merchant.m5_name }}</td>
+                <td class="price" value="{{ merchant.m5_base_price }}">{{ merchant.m5_base_price}}g</td>
+                <td>{{ merchant.inv_5_amt }}</td>
+                <td><input type="number" class="qty" placeholder="Amt" style="width: 60px" min="1"></td>
+            </tr>{% endif %}
+        </thead>
+    </table>
+{% endfor %}
+</div>
+<div style="position: fixed; bottom: 0; right: 0">
+    <btn class="btn btn-danger" id="end_day">End the Day</btn>
+</div>
+{% endblock %}

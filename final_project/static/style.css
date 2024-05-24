@@ -1,0 +1,10 @@
+#background {
+    background-image:url('/static/Village.png');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+#navbutton {
+    position: relative;
+}
