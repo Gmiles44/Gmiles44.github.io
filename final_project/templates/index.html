@@ -9,7 +9,12 @@
         <img src="/static/scroll.png" class="overhead">
         <div class="centered">Homepage!</div>
     </div>
-    <div class="container" 
+    <div class="container">
+        <a href="{{ url_for('login')}}" class="btn btn-primary">
+            <img src="/static/home.png" style="width:30px">Login</a>
+        <a href="{{ url_for('register')}}" class="btn btn-primary">
+            <img src="/static/home.png" style="width:30px">Register</a>
+    </div>
     <div class="container" id="navbutton">
         <button class="btn btn-warning" disabled>
             <img src="/static/home.png" style="width:30px">Home</button>
