@@ -52,10 +52,12 @@ def login():
 
     if request.method == "POST":
         if not request.form.get("username"):
-            return apology("must provide username", 403)
+            flash("Not gonna get in if you don't enter your username.")
+            return redirect("/login")
 
         elif not request.form.get("password"):
-            return apology("must provide password", 403)
+            flash("You're just not going to enter your password? Do you want to get hacked?")
+            return redirect("/login")
 
         rows = db.execute(
             "SELECT * FROM users WHERE username = ?", request.form.get("username")
@@ -64,7 +66,8 @@ def login():
         if len(rows) != 1 or not check_password_hash(
             rows[0]["hash"], request.form.get("password")
         ):
-            return apology("invalid username and/or password", 403)
+            flash("I hope you wrote your info down somewhere, cause one of those was wrong.")
+            return redirect("login")
 
         session["user_id"] = rows[0]["id"]
 
@@ -288,3 +291,6 @@ def tavern():
             if energy > max_energy:
                 db.execute("UPDATE stats set energy = max_energy WHERE player_id = 1")
             return redirect("/tavern")
+
+if __name__ == '__main__':
+    app.run(host='0.0.0.0', port=5000)

@@ -21,9 +21,9 @@
     <div class="progress justify-content-end" style="position: fixed; bottom: 0; right: 0; text-align: center; width: 50%" role="progressbar" aria-label="Example with label" aria-valuemin="0" aria-valuemax="100">
         <div class="progress-bar bg-success" style="width: {{ energy_bar }}%; color: black">Energy:  {{ stats['energy'] }}/{{ stats['max_energy'] }}</div>
     </div>
-    <!--<form action="/end_day" method="get">
+    <a href="{{ url_for('logout') }}">
         <div style="position: fixed; bottom: 0; right: 0">
-            <button class="btn btn-danger" type="submit" id="end_day">End the Day</button>
+            <button class="btn btn-danger" type="submit" id="end_day">Logout</button>
         </div>
-    </form>-->
+    </a>-->
 </html>
