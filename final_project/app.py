@@ -83,7 +83,7 @@ def login():
             rows[0]["hash"], request.form.get("password")
         ):
             flash("I hope you wrote your info down somewhere, cause one of those was wrong.")
-            return redirect("login")
+            return redirect("/login")
 
         session["user_id"] = rows[0]["id"]
         return redirect("/stats")
