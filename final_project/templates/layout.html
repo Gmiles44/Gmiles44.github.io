@@ -14,8 +14,16 @@
         {% block body %}{% endblock %}
     <br>
     <a href="{{ url_for('logout') }}">
-        <div style="position: fixed; bottom: 0; right: 0">
+        <div style="position: fixed; bottom: 20px; right: 10px">
             <button class="btn btn-danger" type="submit" id="end_day">Logout</button>
         </div>
-    </a>-->
+    </a>
+    {% set exp_bar = (stats['exp'] / stats['next_level']) * 100 %}
+    <div class="progress" id="experience_bar" role="progressbar" aria-label="Example with label" aria-valuemin="0" aria-valuemax="100">
+        <div class="progress-bar" style="width: {{ exp_bar }}%">Exp:  {{ '%0.2f' % exp_bar|float }}%</div>
+    </div>
+    {% set energy_bar = (stats['energy'] / stats['max_energy'] * 100) %}
+    <div class="progress justify-content-end" id="energy_bar" role="progressbar" aria-label="Example with label" aria-valuemin="0" aria-valuemax="100">
+        <div class="progress-bar bg-success" style="width: {{ energy_bar }}%; color: black">Energy:  {{ stats['energy'] }}/{{ stats['max_energy'] }}</div>
+    </div>
 </html>

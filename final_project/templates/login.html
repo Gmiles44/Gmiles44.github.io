@@ -16,8 +16,7 @@
             <div class="centered">Log in</div>
         </div>
         {% if get_flashed_messages() %}
-        <div style="margin: 20px auto">
-            <br>
+        <div class="container">
             <header style="margin: 20px auto">
                 <div class="alert alert-danger mb-0 text-center" role="alert">
                     <h2 class="alert-heading">{{ get_flashed_messages() | join(" ") }}</h2>
@@ -27,14 +26,19 @@
         {% endif %}
         <form action="/login" method="post">
             <div class="mb-3">
-                <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="username" placeholder="Username" type="text">
+                <input autocomplete="off" autofocus class="form-control mx-auto w-auto" name="username" placeholder="Username(Case-Sensitive)" type="text">
             </div>
             <div class="mb-3">
                 <input class="form-control mx-auto w-auto" name="password" placeholder="Password" type="password">
             </div>
-            <div class="mb-3">
-            <button class="btn btn-primary" type="submit" style="position: center">Log In</button>
+            <div class="b-3">
+                <button class="btn btn-primary" type="submit" style="display: block; margin: auto">Log In</button>
             </div>
         </form>
+        <a href="{{ url_for('index') }}">
+            <div style="position: fixed; bottom: 10px; right: 10px">
+                <button class="btn btn-danger" type="submit" id="end_day">Back</button>
+            </div>
+        </a>
     </body>
 </html>

@@ -21,6 +21,13 @@
             <img src="/static/market.png" style="width:30px">Market</a>
         <button class="btn btn-primary" disabled>
             <img src="/static/tavern.png" style="width:30px">Tavern</button>
+            {% if get_flashed_messages() %}
+                <header>
+                    <div class="alert alert-danger mb-0 text-center" role="alert">
+                        <h2 class="alert-heading">{{ get_flashed_messages() | join(" ") }}</h2>
+                    </div>
+                </header>
+            {% endif %}
         <table class="table" id="gold">
             <thead><tr id="gold"><td>Gold: {{ stats.gold }}g</td></tr></thead>
         </table>
@@ -29,13 +36,6 @@
                 <button class="btn btn-primary" onclick="showDrink()" style="width: 100px; font-size: 24px">Drink</button>
                 <button class="btn btn-primary" onclick="showLodging()" style="width: 120px; font-size: 24px">Lodging</button>
             </div>
-            {% if get_flashed_messages() %}
-                <header>
-                    <div class="alert alert-danger mb-0 text-center" role="alert">
-                        <h2 class="alert-heading">{{ get_flashed_messages() | join(" ") }}</h2>
-                    </div>
-                </header>
-            {% endif %}
         <table class="container">
             <tr>
                 <td id="food" style="display: none">

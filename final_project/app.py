@@ -64,7 +64,6 @@ def register():
 #LOGIN LOGIN LOGIN LOGIN LOGIN
 @app.route("/login", methods=["GET", "POST"])
 def login():
-    session.clear()
 
     if request.method == "POST":
         if not request.form.get("username"):
@@ -85,6 +84,7 @@ def login():
             flash("I hope you wrote your info down somewhere, cause one of those was wrong.")
             return redirect("/login")
 
+        session.clear()
         session["user_id"] = rows[0]["id"]
         return redirect("/stats")
 
