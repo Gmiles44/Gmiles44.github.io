@@ -9,7 +9,7 @@
         <div class="centered">Crafting!</div>
     </div>
     <div class="container" id="navbutton">
-        <a href="{{ url_for('index') }}" class="btn btn-warning">
+        <a href="{{ url_for('stats') }}" class="btn btn-warning">
             <img src="/static/home.png" style="width:30px">Home</a>
         <a href="{{ url_for('inventory') }}" class="btn btn-secondary">
             <img src="/static/inventory.png" style="width:30px">Inventory</a>
@@ -25,7 +25,7 @@
                     <h3>{{ get_flashed_messages() | join(" ") }}</h3>
                 </div>
             </header>
-        {% endif %}
+            {% endif %}
         <table class="table" style="width: 100%; opacity: 0.9; margin: 10px auto">
             <thead>
                 <tr>
@@ -80,6 +80,14 @@
             </thead>
         </table>
     </form>
+    </div>
+    {% set exp_bar = (stats['exp'] / stats['next_level']) * 100 %}
+    <div class="progress" style="position: fixed; bottom: 0; text-align: center; width: 50%" role="progressbar" aria-label="Example with label" aria-valuemin="0" aria-valuemax="100">
+        <div class="progress-bar" style="width: {{ exp_bar }}%">Exp:  {{ '%0.2f' % exp_bar|float }}%</div>
+    </div>
+    {% set energy_bar = (stats['energy'] / stats['max_energy'] * 100) %}
+    <div class="progress justify-content-end" style="position: fixed; bottom: 0; right: 0; text-align: center; width: 50%" role="progressbar" aria-label="Example with label" aria-valuemin="0" aria-valuemax="100">
+        <div class="progress-bar bg-success" style="width: {{ energy_bar }}%; color: black">Energy:  {{ stats['energy'] }}/{{ stats['max_energy'] }}</div>
     </div>
 </body>
 {% endblock %}
