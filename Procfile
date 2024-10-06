@@ -1,1 +1,1 @@
-web: python final_project/app.py
+web: gunicorn app.py:app
