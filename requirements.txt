@@ -8,4 +8,4 @@ MarkupSafe==2.1.5
 packaging==24.1
 Werkzeug==3.0.4
 cs50
-flask_session
+flask-session
