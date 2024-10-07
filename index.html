@@ -4,12 +4,27 @@
     <head>
         <meta charset="utf-8">
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+        <link rel="stylesheet" href="./styles.css"
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Main Page</title>
     </head>
     <body>
-        <h1>This is my homepage!</h1>
-        <a href="https://real-mr-smith-77de3297c817.herokuapp.com/" class="btn btn-warning">
-            <img src="/static/home.png" style="width:30px">Project</a>
+        <div id="header">
+            <h1>Gabe's Project Page</h1>
+            <h2>Github: Gmiles44</h2>
+        </div>
+        <div id="projects">
+            Projects
+        </div>
+        <div id="mr_smith">
+            <a href="https://real-mr-smith-77de3297c817.herokuapp.com/" class="btn" id="mr_smith_button">
+                <img src="/static/home.png" style="width:30px">Mr Smith</a>
+            <p>This is a browser-based crafting game, the final project of the CS50X 2024 course.
+                It uses Python as the back-end language, SQLite as the database, and HTML and CSS as the front end (There's a bit of JavaScript in there
+                too but it's not as widely utilized, most of the action is through HTTP requests.). In it
+                you are a blacksmith living in a village, buying materials from travelling merchants (who change
+                from day to day) to craft items to sell back and buy more materials, levelling up and getting access to better
+                recipes, materials, and merchants. It's very simple but I had fun making it!  </p>
+        </div>
     </body>
 </html>
