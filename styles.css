@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap');
+
 body {
     background-color: #F2EED7;
 }
@@ -28,7 +30,7 @@ body {
     justify-content: center;
 }
 #header-container {
-    background-color: #7070de;
+    background-image: linear-gradient(rgb(100, 100, 255), rgb(53, 42, 201));
     width: 100vw;
     height: 50vh;
 }
@@ -37,11 +39,12 @@ h1 {
     padding: 10px;
     border-radius: 30px;
     font-weight: 900;
-    color: #626F47
+    color: #FFFFFF;
+    font-family: 'Cormorant Garamond', Garamond, serif;
+    font-size: 3rem;
 }
 
 h2 {
-    background-color: #798645;
     border-radius: 10px;
     padding: 5px;
     color: #F2EED7;
